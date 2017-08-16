@@ -213,7 +213,7 @@ negative.onclick = function () {
 };
 
 
-//equals button - very hard things
+//equals button
 function calc () {
 	console.log(input)
   let num1 = ""
@@ -245,10 +245,13 @@ function calc () {
 				console.log(decimal)
 				integer=output-decimal
 				console.log(integer)
-				decimal = Math.round(decimal*1000);
+				decimal = decimal*1000
+				if (decimal % 1 < 1 && decimal % 1 > 0) {
+					decimal = Math.round(decimal);
+					repeat = "..."
+				}
 				decimal = decimal / 1000;
 				output = integer+decimal;
-				repeat = "..."
 			}
 			return output
 	  }
